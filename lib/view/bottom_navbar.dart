@@ -15,21 +15,19 @@ class BottomNavbarScreen extends StatefulWidget {
 class _BottomNavbarScreenState extends State<BottomNavbarScreen> {
   int _currentIndex = 0;
 
-  // List of screens to display
   final List<Widget> _screens = [
     HomeScreen(),
     DiscoverScreen(),
     CreateScreen(),
     HomeScreen(),
-    ProfileScreen(), // Changed to ProfileScreen for the "Me" tab
+    ProfileScreen(),
   ];
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Scaffold(
-      body: _screens[
-          _currentIndex], // Add this line to display the current screen
+      body: _screens[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: theme.bottomNavigationBarTheme.backgroundColor,
         selectedItemColor: theme.bottomNavigationBarTheme.selectedItemColor,
