@@ -31,8 +31,9 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
       backgroundColor: theme.scaffoldBackgroundColor,
       appBar: AppBar(
         centerTitle: true,
-        title: Container(
-          width: 150,
+        backgroundColor: Colors.transparent,
+        title: SizedBox(
+          width: 200,
           child: TabBar(
             controller: _tabController,
             indicatorColor: Colors.transparent,
@@ -40,9 +41,20 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
             indicatorWeight: 1,
             labelColor: kTikTokWhite,
             unselectedLabelColor: kTikTokGrey,
+            labelPadding: EdgeInsets.zero,
             tabs: const [
-              Tab(text: 'Following'),
-              Tab(text: 'For You'),
+              Tab(
+                child: Text(
+                  'Following',
+                  style: TextStyle(fontSize: 16),
+                ),
+              ),
+              Tab(
+                child: Text(
+                  'For You',
+                  style: TextStyle(fontSize: 16),
+                ),
+              ),
             ],
           ),
         ),

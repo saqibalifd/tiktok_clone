@@ -9,6 +9,7 @@ Color kTikTokBlue = Color(0xFF25F4EE); // TikTok's teal/blue accent
 Color kTikTokGrey = Color(0xFF808080); // Standard grey for secondary text
 Color kTikTokDarkGrey = Color(0xFF121212); // Dark grey for some backgrounds
 Color kTikTokLightGrey = Color(0xFFE7E7E7); // Light grey for borders/dividers
+Color kTikTokGreen = Colors.green;
 
 // Font Weights
 FontWeight regular = FontWeight.w400;
