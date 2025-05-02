@@ -14,26 +14,4 @@ class SoundModel {
     required this.videosCount,
     required this.duration,
   });
-
-  factory SoundModel.fromMap(Map<String, dynamic> map) {
-    return SoundModel(
-      soundId: map['soundId'],
-      name: map['name'],
-      author: map['author'],
-      soundUrl: map['soundUrl'],
-      videosCount: map['videosCount'] ?? 0,
-      duration: (map['duration'] ?? 0).toDouble(),
-    );
-  }
-
-  Map<String, dynamic> toMap() {
-    return {
-      'soundId': soundId,
-      'name': name,
-      'author': author,
-      'soundUrl': soundUrl,
-      'videosCount': videosCount,
-      'duration': duration,
-    };
-  }
 }

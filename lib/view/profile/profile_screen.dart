@@ -1,13 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:tiktok/constants/app_images.dart';
+import 'package:tiktok/extansion/mediaquery_extension.dart';
+import 'package:tiktok/theme/theme.dart';
 
-class ProfileScreen extends StatelessWidget {
+class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
 
+  @override
+  State<ProfileScreen> createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends State<ProfileScreen> {
+  final List dataList = [
+    {'image': AppImages.thumbnailOne},
+    {'image': AppImages.thumbnailThree},
+    {'image': AppImages.thumbnailTwo},
+    {'image': AppImages.thumbnailFour},
+    {'image': AppImages.thumbnailFive},
+    {'image': AppImages.thumbnailSix},
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('@username'),
+        title: const Text('Saqib Ali'),
         actions: [
           IconButton(
             icon: const Icon(Icons.more_vert),
@@ -18,23 +35,23 @@ class ProfileScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            const SizedBox(height: 20),
+            SizedBox(height: context.screenHeight * .02),
             const CircleAvatar(
               radius: 50,
               backgroundImage:
                   NetworkImage('https://randomuser.me/api/portraits/men/1.jpg'),
             ),
-            const SizedBox(height: 10),
+            SizedBox(height: context.screenHeight * .01),
             const Text(
-              '@username',
+              'Saqib Ali',
               style: TextStyle(
-                color: Colors.white,
                 fontWeight: FontWeight.bold,
                 fontSize: 18,
               ),
             ),
-            const SizedBox(height: 10),
+            SizedBox(height: context.screenHeight * .01),
             Row(
+              spacing: context.screenWidth * .06,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Column(
@@ -42,7 +59,6 @@ class ProfileScreen extends StatelessWidget {
                     Text(
                       '100',
                       style: TextStyle(
-                        color: Colors.white,
                         fontWeight: FontWeight.bold,
                         fontSize: 18,
                       ),
@@ -56,13 +72,11 @@ class ProfileScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                const SizedBox(width: 20),
                 Column(
                   children: const [
                     Text(
                       '1.2M',
                       style: TextStyle(
-                        color: Colors.white,
                         fontWeight: FontWeight.bold,
                         fontSize: 18,
                       ),
@@ -76,13 +90,11 @@ class ProfileScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                const SizedBox(width: 20),
                 Column(
                   children: const [
                     Text(
                       '25.4M',
                       style: TextStyle(
-                        color: Colors.white,
                         fontWeight: FontWeight.bold,
                         fontSize: 18,
                       ),
@@ -98,7 +110,7 @@ class ProfileScreen extends StatelessWidget {
                 ),
               ],
             ),
-            const SizedBox(height: 20),
+            SizedBox(height: context.screenHeight * .02),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: OutlinedButton(
@@ -110,32 +122,41 @@ class ProfileScreen extends StatelessWidget {
                   ),
                   minimumSize: const Size(double.infinity, 40),
                 ),
-                child: const Text(
+                child: Text(
                   'Edit profile',
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(color: kTikTokBlack),
                 ),
               ),
             ),
-            const SizedBox(height: 20),
+            SizedBox(height: context.screenHeight * .01),
+            Text(
+              'ہر کسی کے بس میں تھوڑی ہوتا ہے 💕 \n کسی ایک کےلیے وفادار رہنا ❤💕',
+              style: GoogleFonts.notoNastaliqUrdu(fontSize: 12),
+            ),
+            SizedBox(height: context.screenHeight * .01),
             DefaultTabController(
               length: 3,
               child: Column(
                 children: [
-                  const TabBar(
+                  TabBar(
                     tabs: [
                       Tab(icon: Icon(Icons.grid_on)),
                       Tab(icon: Icon(Icons.favorite)),
                       Tab(icon: Icon(Icons.lock)),
                     ],
-                    indicatorColor: Colors.white,
-                    labelColor: Colors.white,
-                    unselectedLabelColor: Colors.grey,
+                    indicatorColor: kTikTokBlack,
+                    labelColor: kTikTokBlack,
+                    dividerHeight: .4,
+                    dividerColor: kTikTokGrey,
+                    indicatorSize: TabBarIndicatorSize.tab,
+                    unselectedLabelColor: kTikTokGrey,
                   ),
                   SizedBox(
                     height: MediaQuery.of(context).size.height * 0.5,
                     child: TabBarView(
                       children: [
                         GridView.builder(
+                          physics: NeverScrollableScrollPhysics(),
                           padding: const EdgeInsets.all(8),
                           gridDelegate:
                               const SliverGridDelegateWithFixedCrossAxisCount(
@@ -143,17 +164,22 @@ class ProfileScreen extends StatelessWidget {
                             crossAxisSpacing: 2,
                             mainAxisSpacing: 2,
                           ),
-                          itemCount: 30,
+                          itemCount: dataList.length,
                           itemBuilder: (context, index) {
-                            return Container(
-                              color:
-                                  Colors.accents[index % Colors.accents.length],
-                              child: const Center(
-                                child: Icon(
-                                  Icons.play_arrow,
-                                  color: Colors.white,
+                            return Stack(
+                              children: [
+                                Image.asset(
+                                    height: double.infinity,
+                                    width: double.infinity,
+                                    fit: BoxFit.cover,
+                                    dataList[index]['image']),
+                                Center(
+                                  child: Icon(
+                                    Icons.play_arrow,
+                                    color: kTikTokWhite,
+                                  ),
                                 ),
-                              ),
+                              ],
                             );
                           },
                         ),

@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:tiktok/theme.dart';
-import 'package:tiktok/view/create/create_scree.dart';
+import 'package:provider/provider.dart';
+import 'package:tiktok/theme/theme.dart';
+import 'package:tiktok/theme/theme_provider.dart';
+import 'package:tiktok/view/create/create_screen.dart';
 import 'package:tiktok/view/discoverd/discovered_screen.dart';
 import 'package:tiktok/view/home/home_screen.dart';
+import 'package:tiktok/view/inbox/inbox_screen.dart';
 import 'package:tiktok/view/profile/profile_screen.dart';
 
 class BottomNavbarScreen extends StatefulWidget {
@@ -19,13 +22,15 @@ class _BottomNavbarScreenState extends State<BottomNavbarScreen> {
     HomeScreen(),
     DiscoverScreen(),
     CreateScreen(),
-    HomeScreen(),
+    InboxScreen(),
     ProfileScreen(),
   ];
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final themeProvider = Provider.of<ThemeProvider>(context);
+
     return Scaffold(
       body: _screens[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
@@ -37,14 +42,20 @@ class _BottomNavbarScreenState extends State<BottomNavbarScreen> {
         onTap: (index) {
           setState(() {
             _currentIndex = index;
+
+            if (index == 0 || index == 1 || index == 2) {
+              themeProvider.setDarkTheme();
+            } else if (index == 3 || index == 4) {
+              themeProvider.setLightTheme();
+            }
           });
         },
         items: [
-          const BottomNavigationBarItem(
+          BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
           ),
-          const BottomNavigationBarItem(
+          BottomNavigationBarItem(
             icon: Icon(Icons.search),
             label: 'Discover',
           ),
@@ -71,15 +82,14 @@ class _BottomNavbarScreenState extends State<BottomNavbarScreen> {
             ),
             label: '',
           ),
-          const BottomNavigationBarItem(
+          BottomNavigationBarItem(
             icon: Icon(Icons.message),
             label: 'Inbox',
           ),
           BottomNavigationBarItem(
             icon: CircleAvatar(
               radius: 14,
-              backgroundImage:
-                  NetworkImage('https://randomuser.me/api/portraits/men/1.jpg'),
+              backgroundImage: AssetImage('assets/images/dummyProfile.jpeg'),
             ),
             label: 'Me',
           ),

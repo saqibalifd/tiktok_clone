@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:tiktok/view/home/following_preview.dart';
-import 'package:tiktok/view/home/foryou_preview.dart';
+import 'package:tiktok/data/dummy_data_service.dart';
+import 'package:tiktok/view/home/video_preview.dart';
 
-import '../../theme.dart';
+import '../../theme/theme.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -10,6 +10,8 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
+  final DummyDataService dummyDataService = DummyDataService();
+
   late TabController _tabController;
 
   @override
@@ -20,7 +22,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
 
   @override
   void dispose() {
-    _tabController.dispose(); // Always dispose controllers
+    _tabController.dispose();
     super.dispose();
   }
 
@@ -36,7 +38,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
           width: 200,
           child: TabBar(
             controller: _tabController,
-            indicatorColor: Colors.transparent,
+            indicatorColor: kTikTokBlack.withValues(alpha: .0),
             dividerColor: Colors.transparent,
             indicatorWeight: 1,
             labelColor: kTikTokWhite,
@@ -68,8 +70,12 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
       body: TabBarView(
         controller: _tabController,
         children: [
-          FollowingPreview(),
-          ForyouPreview(),
+          VideoPreview(
+              commentsModel: dummyDataService.comments,
+              videoModel: dummyDataService.dummyVideos),
+          VideoPreview(
+              commentsModel: dummyDataService.comments,
+              videoModel: dummyDataService.dummyVideos),
         ],
       ),
     );

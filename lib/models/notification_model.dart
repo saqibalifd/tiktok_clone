@@ -18,30 +18,4 @@ class NotificationModel {
     this.videoId,
     this.commentId,
   });
-
-  factory NotificationModel.fromMap(Map<String, dynamic> map) {
-    return NotificationModel(
-      notificationId: map['notificationId'],
-      recipientId: map['recipientId'],
-      senderId: map['senderId'],
-      type: map['type'],
-      read: map['read'] ?? false,
-      createdAt: map['createdAt'],
-      videoId: map['videoId'],
-      commentId: map['commentId'],
-    );
-  }
-
-  Map<String, dynamic> toMap() {
-    return {
-      'notificationId': notificationId,
-      'recipientId': recipientId,
-      'senderId': senderId,
-      'type': type,
-      'read': read,
-      'createdAt': createdAt,
-      'videoId': videoId,
-      'commentId': commentId,
-    };
-  }
 }

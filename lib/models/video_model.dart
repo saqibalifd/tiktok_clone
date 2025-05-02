@@ -36,48 +36,4 @@ class VideoModel {
     required this.privacy,
     this.isLiked,
   });
-
-  factory VideoModel.fromMap(Map<String, dynamic> map) {
-    return VideoModel(
-      videoId: map['videoId'],
-      userId: map['userId'],
-      caption: map['caption'] ?? '',
-      videoUrl: map['videoUrl'],
-      thumbnailUrl: map['thumbnailUrl'],
-      likesCount: map['likesCount'] ?? 0,
-      commentsCount: map['commentsCount'] ?? 0,
-      sharesCount: map['sharesCount'] ?? 0,
-      createdAt: map['createdAt'],
-      soundId: map['soundId'],
-      soundName: map['soundName'] ?? '', // Added
-      uploadUsername: map['uploadUsername'] ?? '', // Added
-      uploadUserProfile: map['uploadUserProfile'] ?? '', // Added
-      isUserVerified: map['isUserVerified'] ?? false, // Added
-      hashtags: List<String>.from(map['hashtags'] ?? []),
-      privacy: map['privacy'] ?? 'public',
-      isLiked: map['isLiked'] ?? false, // Added
-    );
-  }
-
-  Map<String, dynamic> toMap() {
-    return {
-      'videoId': videoId,
-      'userId': userId,
-      'caption': caption,
-      'videoUrl': videoUrl,
-      'thumbnailUrl': thumbnailUrl,
-      'likesCount': likesCount,
-      'commentsCount': commentsCount,
-      'sharesCount': sharesCount,
-      'createdAt': createdAt,
-      'soundId': soundId,
-      'soundName': soundName, // Added
-      'uploadUsername': uploadUsername, // Added
-      'uploadUserProfile': uploadUserProfile, // Added
-      'isUserVerified': isUserVerified, // Added
-      'hashtags': hashtags,
-      'privacy': privacy,
-      'isLiked': isLiked,
-    };
-  }
 }
