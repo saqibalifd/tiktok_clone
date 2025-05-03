@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:tiktok/theme/theme.dart';
 
 class MessageInput extends StatefulWidget {
@@ -32,7 +33,7 @@ class _MessageInputState extends State<MessageInput> {
                       decoration: InputDecoration(
                         border: InputBorder.none,
                         hintText: 'Message...',
-                        hintStyle: TextStyle(color: kTikTokGrey),
+                        hintStyle: GoogleFonts.nunitoSans(),
                       ),
                     ),
                   ),

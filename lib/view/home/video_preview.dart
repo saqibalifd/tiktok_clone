@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:tiktok/constants/app_images.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:tiktok/extansion/format_extansion.dart';
 import 'package:tiktok/extansion/mediaquery_extension.dart';
 import 'package:tiktok/models/comments_model.dart';
 import 'package:tiktok/models/video_model.dart';
+import 'package:tiktok/view/profile/user_profile_screen.dart';
 import 'package:video_player/video_player.dart';
 import 'package:chewie/chewie.dart';
 import 'package:tiktok/theme/theme.dart';
@@ -114,9 +115,18 @@ class _VideoPreviewState extends State<VideoPreview> {
                 child: Column(
                   spacing: context.screenHeight * .03,
                   children: [
-                    CircleAvatar(
-                      backgroundColor: kTikTokWhite,
-                      backgroundImage: AssetImage(video.uploadUserProfile),
+                    GestureDetector(
+                      onTap: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => UserProfileScreen(
+                                userImage: video.uploadUserProfile,
+                                userName: video.uploadUsername),
+                          )),
+                      child: CircleAvatar(
+                        backgroundColor: kTikTokWhite,
+                        backgroundImage: AssetImage(video.uploadUserProfile),
+                      ),
                     ),
                     GestureDetector(
                       onTap: () {
@@ -153,6 +163,8 @@ class _VideoPreviewState extends State<VideoPreview> {
                       children: [
                         Text(
                           video.uploadUsername,
+                          style: GoogleFonts.nunitoSans(
+                              fontSize: 16, fontWeight: FontWeight.bold),
                         ),
                         video.isUserVerified
                             ? CircleAvatar(
@@ -169,7 +181,7 @@ class _VideoPreviewState extends State<VideoPreview> {
                     ),
                     Text(
                       '${video.caption} #${video.hashtags[0]}',
-                      style: tiktokVideoInfoStyle,
+                      style: GoogleFonts.nunitoSans(fontSize: 14),
                     ),
                     Row(
                       children: [
@@ -178,9 +190,11 @@ class _VideoPreviewState extends State<VideoPreview> {
                         SizedBox(
                           width: context.screenWidth * .75,
                           child: Text(
-                              overflow: TextOverflow.ellipsis,
-                              'Original Sound - ${video.soundName ?? ''}',
-                              style: tiktokCaptionStyle),
+                            overflow: TextOverflow.ellipsis,
+                            'Original Sound - ${video.soundName ?? ''}',
+                            style: GoogleFonts.nunitoSans(
+                                fontSize: 14, color: kTikTokGrey),
+                          ),
                         ),
                       ],
                     ),
@@ -207,12 +221,12 @@ class _VideoPreviewState extends State<VideoPreview> {
     showModalBottomSheet(
       context: context,
       isScrollControlled: true,
-      backgroundColor: Colors.white,
+      backgroundColor: kTikTokWhite,
       builder: (BuildContext context) {
         return Container(
           height: MediaQuery.of(context).size.height * 0.75,
           decoration: BoxDecoration(
-            color: Colors.white70,
+            color: kTikTokWhite.withValues(alpha: .3),
             borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
           ),
           child: Column(
@@ -227,11 +241,10 @@ class _VideoPreviewState extends State<VideoPreview> {
                     ),
                     Text(
                       'Comments',
-                      style: TextStyle(
-                        color: kTikTokBlack,
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                      ),
+                      style: GoogleFonts.nunitoSans(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: kTikTokBlack),
                     ),
                     IconButton(
                       icon: Icon(Icons.close, color: kTikTokBlack),
@@ -262,29 +275,24 @@ class _VideoPreviewState extends State<VideoPreview> {
                               children: [
                                 Text(
                                   comment.username,
-                                  style: TextStyle(
-                                    color: kTikTokBlack,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 14,
-                                  ),
+                                  style: GoogleFonts.nunitoSans(
+                                      fontSize: 14,
+                                      color: kTikTokBlack,
+                                      fontWeight: FontWeight.bold),
                                 ),
                                 const SizedBox(height: 4),
                                 Text(
                                   comment.text,
-                                  style: TextStyle(
-                                    color: kTikTokGrey,
-                                    fontSize: 14,
-                                  ),
+                                  style: GoogleFonts.nunitoSans(
+                                      fontSize: 14, color: kTikTokBlack),
                                 ),
                                 const SizedBox(height: 8),
                                 Row(
                                   children: [
                                     Text(
                                       comment.time,
-                                      style: TextStyle(
-                                        color: kTikTokGrey,
-                                        fontSize: 12,
-                                      ),
+                                      style: GoogleFonts.nunitoSans(
+                                          fontSize: 12, color: kTikTokGrey),
                                     ),
                                     const SizedBox(width: 16),
                                     GestureDetector(
@@ -300,10 +308,8 @@ class _VideoPreviewState extends State<VideoPreview> {
                                       },
                                       child: Text(
                                         'reply',
-                                        style: TextStyle(
-                                          color: Colors.grey,
-                                          fontSize: 12,
-                                        ),
+                                        style: GoogleFonts.nunitoSans(
+                                            fontSize: 12, color: kTikTokGrey),
                                       ),
                                     ),
                                   ],
@@ -345,7 +351,8 @@ class _VideoPreviewState extends State<VideoPreview> {
                         controller: commentController,
                         decoration: InputDecoration(
                           hintText: 'Add a comment...',
-                          hintStyle: TextStyle(color: Colors.grey),
+                          hintStyle: GoogleFonts.nunitoSans(
+                              fontSize: 14, color: kTikTokGrey),
                           filled: true,
                           fillColor: kTikTokWhite,
                           border: OutlineInputBorder(
@@ -369,7 +376,7 @@ class _VideoPreviewState extends State<VideoPreview> {
                               time: 'Just now',
                               likes: 0,
                               isLiked: false,
-                              userImage: AppImages.dummyProfile,
+                              userImage: 'assets/images/dummyProfile.jpeg',
                             ));
                             commentController.clear();
                           });

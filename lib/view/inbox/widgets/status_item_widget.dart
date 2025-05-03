@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:tiktok/extansion/mediaquery_extension.dart';
 import 'package:tiktok/theme/theme.dart';
 
@@ -34,7 +35,7 @@ Widget StoryItemWidget(
           child: Text(
             overflow: TextOverflow.ellipsis,
             title,
-            style: TextStyle(fontSize: 12),
+            style: GoogleFonts.nunitoSans(fontSize: 12),
           ),
         ),
       ),
@@ -93,7 +94,7 @@ Widget MyStoryItemWidget(
           child: Text(
             overflow: TextOverflow.ellipsis,
             title,
-            style: TextStyle(fontSize: 12),
+            style: GoogleFonts.nunitoSans(fontSize: 12),
           ),
         ),
       ),

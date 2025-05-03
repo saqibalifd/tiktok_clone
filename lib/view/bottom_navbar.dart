@@ -6,7 +6,7 @@ import 'package:tiktok/view/create/create_screen.dart';
 import 'package:tiktok/view/discoverd/discovered_screen.dart';
 import 'package:tiktok/view/home/home_screen.dart';
 import 'package:tiktok/view/inbox/inbox_screen.dart';
-import 'package:tiktok/view/profile/profile_screen.dart';
+import 'package:tiktok/view/profile/my_profile_screen.dart';
 
 class BottomNavbarScreen extends StatefulWidget {
   const BottomNavbarScreen({super.key});
@@ -23,7 +23,7 @@ class _BottomNavbarScreenState extends State<BottomNavbarScreen> {
     DiscoverScreen(),
     CreateScreen(),
     InboxScreen(),
-    ProfileScreen(),
+    MyProfileScreen(),
   ];
 
   @override

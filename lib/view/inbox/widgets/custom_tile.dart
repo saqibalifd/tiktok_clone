@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:tiktok/theme/theme.dart';
 
 Widget customTile(
@@ -14,8 +15,9 @@ Widget customTile(
         maxLines: 1,
         overflow: TextOverflow.ellipsis,
       ),
-      titleTextStyle: TextStyle(fontSize: 14, color: kTikTokBlack),
-      subtitleTextStyle: TextStyle(fontSize: 12, color: kTikTokGrey),
+      titleTextStyle: GoogleFonts.nunitoSans(fontSize: 14, color: kTikTokBlack),
+      subtitleTextStyle:
+          GoogleFonts.nunitoSans(fontSize: 12, color: kTikTokGrey),
       subtitle: Text(
         subtitle,
         maxLines: 1,

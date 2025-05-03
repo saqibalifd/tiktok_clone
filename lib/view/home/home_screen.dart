@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:tiktok/data/dummy_data_service.dart';
 import 'package:tiktok/view/home/video_preview.dart';
 
@@ -44,17 +45,19 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
             labelColor: kTikTokWhite,
             unselectedLabelColor: kTikTokGrey,
             labelPadding: EdgeInsets.zero,
-            tabs: const [
+            tabs: [
               Tab(
                 child: Text(
                   'Following',
-                  style: TextStyle(fontSize: 16),
+                  style: GoogleFonts.nunitoSans(
+                      fontSize: 16, fontWeight: FontWeight.bold),
                 ),
               ),
               Tab(
                 child: Text(
                   'For You',
-                  style: TextStyle(fontSize: 16),
+                  style: GoogleFonts.nunitoSans(
+                      fontSize: 16, fontWeight: FontWeight.bold),
                 ),
               ),
             ],

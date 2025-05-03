@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tiktok/data/dummy_data_service.dart';
+import 'package:tiktok/theme/theme.dart';
 import 'package:tiktok/view/inbox/widgets/chat_header.dart';
 import 'package:tiktok/view/inbox/widgets/message_buble.dart';
 import 'package:tiktok/view/inbox/widgets/message_input.dart';
@@ -21,7 +22,7 @@ class _ChatScreenState extends State<ChatScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white.withValues(alpha: .95),
+      backgroundColor: kTikTokWhite.withValues(alpha: .95),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [

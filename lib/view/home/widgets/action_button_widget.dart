@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tiktok/theme/theme.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 Widget buildActionButton(
   IconData icon,
@@ -11,7 +11,10 @@ Widget buildActionButton(
       Icon(icon, size: 32, color: color),
       SizedBox(height: 4),
       if (label.isNotEmpty)
-        Text(label, style: tiktokSmallStyle.copyWith(color: kTikTokWhite)),
+        Text(
+          label,
+          style: GoogleFonts.nunitoSans(fontSize: 12),
+        ),
     ],
   );
 }

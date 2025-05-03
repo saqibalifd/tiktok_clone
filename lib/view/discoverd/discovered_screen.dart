@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tiktok/constants/app_images.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:tiktok/extansion/mediaquery_extension.dart';
 import 'package:tiktok/theme/theme.dart';
 
@@ -13,23 +13,23 @@ class DiscoverScreen extends StatefulWidget {
 class _DiscoverScreenState extends State<DiscoverScreen> {
   final List discoveryData = [
     {
-      'imagePath': AppImages.thumbnailOne,
+      'imagePath': 'assets/images/thumbnailOne.jpeg',
     },
     {
-      'imagePath': AppImages.thumbnailTwo,
+      'imagePath': 'assets/images/thumbnailTwo.jpeg',
     },
     {
-      'imagePath': AppImages.thumbnailThree,
+      'imagePath': 'assets/images/thumbnailThree.webp',
     },
     {
-      'imagePath': AppImages.thumbnailFour,
+      'imagePath': 'assets/images/thumbnailFour.jpeg',
     },
     {
-      'imagePath': AppImages.thumbnailFive,
+      'imagePath': 'assets/images/thumbnailFive.jpeg',
     },
     {
-      'imagePath': AppImages.thumbnailSix,
-    }
+      'imagePath': 'assets/images/thumbnailSix.jpeg',
+    },
   ];
 
   @override
@@ -46,7 +46,7 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
             decoration: InputDecoration(
               prefixIcon: Icon(Icons.search, color: kTikTokGrey),
               hintText: 'Search',
-              hintStyle: TextStyle(color: kTikTokGrey),
+              hintStyle: GoogleFonts.nunitoSans(color: kTikTokGrey),
               border: InputBorder.none,
               contentPadding: const EdgeInsets.symmetric(vertical: 10),
             ),
@@ -79,11 +79,10 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
                 left: 10,
                 child: Text(
                   '#trending${index + 1}',
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16,
-                  ),
+                  style: GoogleFonts.nunitoSans(
+                      fontSize: 16,
+                      color: kTikTokWhite,
+                      fontWeight: FontWeight.bold),
                 ),
               ),
             ],

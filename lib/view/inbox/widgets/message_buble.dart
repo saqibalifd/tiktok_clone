@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:tiktok/theme/theme.dart';
 import 'package:tiktok/models/message_model.dart';
 
@@ -33,10 +34,7 @@ Widget messageBuble(Message message, String imageUrl) {
             ),
             child: Text(
               message.text,
-              style: TextStyle(
-                color: kTikTokBlack,
-                fontSize: 15,
-              ),
+              style: GoogleFonts.nunitoSans(fontSize: 15, color: kTikTokBlack),
             ),
           ),
         ),
