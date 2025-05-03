@@ -201,14 +201,14 @@ class _VideoPreviewState extends State<VideoPreview> {
                   ],
                 ),
               ),
-              if (!_chewieControllers[index].isPlaying)
-                Center(
-                  child: Icon(
-                    Icons.play_circle_filled,
-                    size: 60,
-                    color: kTikTokWhite.withValues(alpha: .8),
-                  ),
-                ),
+              // if (!_chewieControllers[index].isPlaying)
+              //   Center(
+              //     child: Icon(
+              //       Icons.play_circle_filled,
+              //       size: 60,
+              //       color: kTikTokWhite.withValues(alpha: .8),
+              //     ),
+              //   ),
             ],
           );
         },

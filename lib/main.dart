@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:tiktok/theme/theme.dart';
 import 'package:tiktok/theme/theme_provider.dart';
-import 'package:tiktok/view/bottom_navbar.dart';
+import 'package:tiktok/view/splash_screen.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
+
   runApp(
     ChangeNotifierProvider(
       create: (_) => ThemeProvider(),
@@ -27,6 +35,6 @@ class MyApp extends StatelessWidget {
         themeMode: themeProvider.themeMode,
         theme: tiktokLightTheme,
         darkTheme: tiktokTheme,
-        home: BottomNavbarScreen());
+        home: SplashScreen());
   }
 }

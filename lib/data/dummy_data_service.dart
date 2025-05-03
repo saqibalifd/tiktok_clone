@@ -226,7 +226,7 @@ class DummyDataService {
   final List<ChatModel> chats = [
     ChatModel(
       chatUserName: 'Ali Raza',
-      subtitle: 'Sent 4h ago',
+      subtitle: 'Sent 1h ago',
       profilePic: 'assets/images/movieslogo.jpg',
     ),
     ChatModel(
@@ -235,8 +235,8 @@ class DummyDataService {
       profilePic: 'assets/images/userProfile3.jpg',
     ),
     ChatModel(
-      chatUserName: 'Ghulam Qadir',
-      subtitle: 'Sent 4h ago',
+      chatUserName: 'Elma',
+      subtitle: 'Sent 45m ago',
       profilePic: 'assets/images/userProfile4.jpg',
     ),
     ChatModel(
@@ -246,7 +246,7 @@ class DummyDataService {
     ),
     ChatModel(
       chatUserName: 'Zulqarnian',
-      subtitle: 'Sent 4h ago',
+      subtitle: 'Seen today',
       profilePic: 'assets/images/userProfile1.jpg',
     ),
   ];
